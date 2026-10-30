@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Funcionario {
 
-    protected ArrayList listaDocumentos = new ArrayList();
+    protected ArrayList listaChamados = new ArrayList();
     private Funcionario funcionarioSuperior;
 
     public Funcionario getFuncionarioSuperior() {
@@ -14,21 +14,21 @@ public abstract class Funcionario {
     public void setFuncionarioSuperior(Funcionario funcionarioSuperior) {
         this.funcionarioSuperior = funcionarioSuperior;
     }
-    
+
     public abstract String getDescricaoCargo();
-    
-    public String assinarDocumento(Documento documento) {
-        if (listaDocumentos.contains(documento.getTipoDocumento())) {
+
+    public String atenderChamado(Chamado chamado) {
+        if (listaChamados.contains(chamado.getTipoChamado())) {
             return getDescricaoCargo();
         }
         else {
             if (funcionarioSuperior != null) {
-                return funcionarioSuperior.assinarDocumento(documento);
+                return funcionarioSuperior.atenderChamado(chamado);
             }
-            else 
+            else
             {
-                return "Sem assinatura";
+                return "Sem atendimento";
             }
-        }        
+        }
     }
 }

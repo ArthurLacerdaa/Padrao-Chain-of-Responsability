@@ -1,5 +1,5 @@
 package padroescomportamentais.chainofresponsability;
 
-public interface TipoDocumento {
-    
+public interface TipoChamado {
+
 }
